@@ -2,7 +2,7 @@
 """
 Created on Tue Nov 21 15:50:24 2017
 
-@author: spravce
+@author: coke
 """
 
 import numpy as np 
@@ -100,7 +100,7 @@ for i in range(a,j):
         
         Ai[c], Bi[c] = np.polyfit(np.log(Rgk/pr), np.log(k), 1)
                     
-        #print(str(i) +' '+'first fit line:\ny = {:.2f} , {:.2f}'.format(Ai[c], Bi[c]))
+        print(str(i) +' '+'first fit line:\ny = {:.2f} , {:.2f}'.format(Ai[c], Bi[c]))
         c=c+1
         
 Rgtotal=np.average(Rg)        
@@ -108,7 +108,7 @@ Sigmd=np.std(Rg)
         
 plt.figure(1,facecolor="white")
 ax2 = plt.subplot(111)
-ax2.plot(t,Rg,'o',c='b',label='',linewidth=2)
+ax2.plot(t,Rg,'o',c='m',label='',linewidth=2)
 ax3 = ax2.twinx()
 ax3.plot(t,Ai,'o',c='r',label='',linewidth=2)
 ax3.set_ylabel('df', color='k',fontsize=20)
@@ -125,7 +125,7 @@ plt.show()
 
 RG=Rgk/pr
 
-Rg_avg = np.average(Rg[150:190])
+Rg_avg = np.average(Rg[120:190])
 print(Rg_avg)
 
 np.savetxt('Rgdf16004DMTSEvE1.txt',np.transpose([t,Rg,Ai,pk]),delimiter=' ')
